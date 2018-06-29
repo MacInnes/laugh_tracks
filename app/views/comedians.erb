@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+  <head>
+    <title>Comedians</title>
+  </head>
+  <body>
+    <h1>Comedians:</h1>
+    <% if @comedians %>
+      <h4>Average comedian age: <%=@average_age%></h4>
+      <% @comedians.each do |comedian| %>
+        <div id="comedian-<%=comedian.id%>">
+          <h4>Name: <%= comedian.name %> </h4>
+          <h4>Age: <%= comedian.age%> </h4>
+          <h4>Specials (<%= comedian.specials.length %>): </h4>
+            <% comedian.specials.each do |special| %>
+              <p><%= special.name %></p>
+            <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </body>
+</html>
